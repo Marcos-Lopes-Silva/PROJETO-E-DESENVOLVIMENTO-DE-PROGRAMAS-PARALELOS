@@ -1,0 +1,28 @@
+--- Starting test ---
+- Execution with 14, 16 and 18 queens
+
+---------------------
+- Execution with 14 queens:
+
+real	0m1,991s
+user	0m1,981s
+sys	0m0,001s
+- NQueens script output: (no output generated)
+
+---------------------
+- Execution with 16 queens:
+
+real	1m31,063s
+user	1m30,987s
+sys	0m0,052s
+- NQueens script output: (no output generated)
+
+---------------------
+- Execution with 18 queens:
+
+real	85m30,388s
+user	85m27,097s
+sys	0m2,152s
+- NQueens script output: (no output generated)
+
+--- Test finished ---
