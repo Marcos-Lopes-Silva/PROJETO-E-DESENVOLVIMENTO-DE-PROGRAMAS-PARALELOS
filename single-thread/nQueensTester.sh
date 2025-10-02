@@ -25,13 +25,21 @@ for i in 0 2 4; do
 
     result_file="$log_dir/result-$current-queens.txt"
 
-    { time ./executable "$current" > "$result_file"; } 2>>"$log_file"
+    output_and_time=$( { time ./executable "$current"; } 2>&1 )
 
-    exec_output=$(tail -n 3 "$log_file")
-    log "$exec_output"
+    time_output=$(echo "$output_and_time" | grep -E "^(real|user|sys)")
+    program_output=$(echo "$output_and_time" | grep -vE "^(real|user|sys)")
 
-    log "- NQueens script output in file: $result_file"$'\n'
+    echo "$time_output" | tee -a "$log_file"
+
+    if [[ -n "$program_output" ]]; then
+        echo "$program_output" | tee -a "$log_file"
+        echo "$program_output" > "$result_file"
+        log "- NQueens script output in file: $result_file"$'\n'
+    else
+        log "- NQueens script output: (no output generated)"$'\n'
+    fi
 done
 
-
-log "--- Test finished ---" log "Execution logs saved in: $log_file"
+log "--- Test finished ---"
+log "Execution logs saved in: $log_file"

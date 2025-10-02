@@ -8,8 +8,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX 100  // Could this value be a problem for larger size of N?
-#define output 1 // Comment this line to only collect the execution time
+#define MAX 100 // Could this value be a problem for larger size of N?
+// #define output 1 // Comment this line to only collect the execution time
 
 typedef struct
 {
